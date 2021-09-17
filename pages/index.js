@@ -54,7 +54,7 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <h1 className="text-center">Today's weather for {data.name}, {data.sys.country}</h1>
+      <h1 className="text-center">Today&apos;s weather for {data.name}, {data.sys.country}</h1>
       <h3 className="text-center">
         <Moment unix>
           {data.dt}
