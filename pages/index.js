@@ -26,10 +26,10 @@ const Home = (props) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query ? query : 'Calgary'}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query ? query : 'Calgary'}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
         const data = await res.json()
 
-        const resForecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${query ? query : 'Calgary'}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
+        const resForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${query ? query : 'Calgary'}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
         const dataForecast = await resForecast.json()
 
         setData(data)
@@ -62,7 +62,7 @@ const Home = (props) => {
       </h3>
       <div className="d-flex align-items-center justify-content-center">
         <Image
-          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
           alt={data.weather[0].main}
           width={100}
           height={100}
@@ -83,7 +83,7 @@ const Home = (props) => {
                       <Col key={forecast.dt}>
                         <Figure className="text-center">
                           <Image
-                            src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+                            src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
                             alt={forecast.weather[0].main}
                             width={100}
                             height={100}
@@ -111,10 +111,10 @@ const Home = (props) => {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Calgary&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
+  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Calgary&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
   const data = await res.json()
   
-  const resForecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Calgary&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
+  const resForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Calgary&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`)
   const dataForecast = await resForecast.json()
 
   if (!data) {
